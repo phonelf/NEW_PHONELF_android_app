@@ -1,4 +1,4 @@
-package com.andythebreaker.phonelfCOUM;
+package com.andythebreaker.tcpgps;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.andythebreaker.phonelfCOUM", appContext.getPackageName());
+        assertEquals("com.andythebreaker.tcpgps", appContext.getPackageName());
     }
 }

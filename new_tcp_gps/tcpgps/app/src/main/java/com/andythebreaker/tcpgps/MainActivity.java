@@ -10,7 +10,7 @@
  * @author andythebreaker
  * @date 2020/10/10
  */
-package com.andythebreaker.phonelfCOUM;
+package com.andythebreaker.tcpgps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -60,6 +60,9 @@ import java.text.DateFormat;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Switch;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import java.nio.charset.StandardCharsets;
 
@@ -571,7 +574,7 @@ public class MainActivity extends AppCompatActivity {
             int Last_length_of_external_read_INT = Integer.valueOf(implementMFread(assetPath).replaceAll("[^0-9]", ""));/*
             TODO:
                 E/AndroidRuntime: FATAL EXCEPTION: main
-                Process: com.andythebreaker.phonelfCOUM, PID: 9135
+                Process: com.andythebreaker.tcpgps, PID: 9135
                 java.lang.NumberFormatException: Invalid int: "6699673266996765"
             */
             /*length :
