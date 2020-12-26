@@ -354,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void run() {
             try {
-                server = new ServerSocket(PORT);
+                server = new ServerSocket(port_r);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
