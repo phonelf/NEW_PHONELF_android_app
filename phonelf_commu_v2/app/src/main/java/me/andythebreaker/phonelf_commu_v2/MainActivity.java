@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
 
             if (pt2bt.getText().toString().equals("啟動")) {
-                ServerThread2 serverThread = new ServerThread2(PORT);
+                ServerThread2 serverThread = new ServerThread2(9998);
                 flag = true;
 
                 serverThread.start();
@@ -350,7 +350,7 @@ public class MainActivity extends AppCompatActivity {
             port_in = port_r;
         }
 
-        public int port_r = 9999;
+        public int port_r = 9998;
 
         public void run() {
             try {
