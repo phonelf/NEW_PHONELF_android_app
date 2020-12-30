@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
     //private String slow04="";
     //private String slow05="";
     private Button mgSend_obj = null;
+    private EditText updn_sel_1 = null;
+    private EditText updn_sel_2 = null;
 
 
     //除錯區域宣告
@@ -139,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
         //slower
         mgSend_obj = (Button) findViewById(R.id.mgSend);
         mgSend_obj.setOnClickListener(new mgSend_objClickListener());
+        updn_sel_1 = (EditText) findViewById(R.id.adj_mt);
+        updn_sel_2 = (EditText) findViewById(R.id.adj_mt2);
 
         //GUI動作宣告
         mText1.setText(hostip);
@@ -198,33 +202,83 @@ public class MainActivity extends AppCompatActivity {
     private final class btlClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            p2e4.setText(Integer.toString(Integer.valueOf(p2e4.getText().toString()) - 4));
-
+            if (Integer.valueOf(updn_sel_2.getText().toString()) == 1) {
+                p2e2.setText(Integer.toString(Integer.valueOf(p2e2.getText().toString()) - 4));
+            } else if (Integer.valueOf(updn_sel_2.getText().toString()) == 2) {
+                p2e3.setText(Integer.toString(Integer.valueOf(p2e3.getText().toString()) - 4));
+            } else if (Integer.valueOf(updn_sel_2.getText().toString()) == 3) {
+                p2e4.setText(Integer.toString(Integer.valueOf(p2e4.getText().toString()) - 4));
+            } else if (Integer.valueOf(updn_sel_2.getText().toString()) == 4) {
+                p2e5.setText(Integer.toString(Integer.valueOf(p2e5.getText().toString()) - 4));
+            } else {
+                Toast toast22 = Toast.makeText(MainActivity.this, "調整錯誤!!!!", Toast.LENGTH_LONG);
+                toast22.show();
+            }
+            go_and_send();
         }
     }
 
     private final class btrClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            p2e4.setText(Integer.toString(Integer.valueOf(p2e4.getText().toString()) + 4));
-
+            if (Integer.valueOf(updn_sel_2.getText().toString()) == 1) {
+                p2e2.setText(Integer.toString(Integer.valueOf(p2e2.getText().toString()) + 4));
+            } else if (Integer.valueOf(updn_sel_2.getText().toString()) == 2) {
+                p2e3.setText(Integer.toString(Integer.valueOf(p2e3.getText().toString()) + 4));
+            } else if (Integer.valueOf(updn_sel_2.getText().toString()) == 3) {
+                p2e4.setText(Integer.toString(Integer.valueOf(p2e4.getText().toString()) + 4));
+            } else if (Integer.valueOf(updn_sel_2.getText().toString()) == 4) {
+                p2e5.setText(Integer.toString(Integer.valueOf(p2e5.getText().toString()) + 4));
+            } else {
+                Toast toast22 = Toast.makeText(MainActivity.this, "調整錯誤!!!!", Toast.LENGTH_LONG);
+                toast22.show();
+            }
+            go_and_send();
         }
     }
 
     private final class btuClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            p2e3.setText(Integer.toString(Integer.valueOf(p2e3.getText().toString()) - 4));
+
+            if (Integer.valueOf(updn_sel_1.getText().toString()) == 1) {
+                p2e2.setText(Integer.toString(Integer.valueOf(p2e2.getText().toString()) - 4));
+            } else if ((Integer.valueOf(updn_sel_1.getText().toString()) == 2)) {
+                p2e3.setText(Integer.toString(Integer.valueOf(p2e3.getText().toString()) - 4));
+            } else if ((Integer.valueOf(updn_sel_1.getText().toString()) == 3)) {
+                p2e4.setText(Integer.toString(Integer.valueOf(p2e4.getText().toString()) - 4));
+            } else if ((Integer.valueOf(updn_sel_1.getText().toString()) == 4)) {
+                p2e5.setText(Integer.toString(Integer.valueOf(p2e5.getText().toString()) - 4));
+            } else {
+                Toast toast22 = Toast.makeText(MainActivity.this, "調整錯誤!!!!", Toast.LENGTH_LONG);
+                toast22.show();
+            }
+            go_and_send();
 
         }
+
     }
 
     private final class btdClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            p2e3.setText(Integer.toString(Integer.valueOf(p2e3.getText().toString()) + 4));
+            if (Integer.valueOf(updn_sel_1.getText().toString()) == 1) {
+                p2e2.setText(Integer.toString(Integer.valueOf(p2e2.getText().toString()) + 4));
+            } else if ((Integer.valueOf(updn_sel_1.getText().toString()) == 2)) {
+                p2e3.setText(Integer.toString(Integer.valueOf(p2e3.getText().toString()) + 4));
+            } else if ((Integer.valueOf(updn_sel_1.getText().toString()) == 3)) {
+                p2e4.setText(Integer.toString(Integer.valueOf(p2e4.getText().toString()) + 4));
+            } else if ((Integer.valueOf(updn_sel_1.getText().toString()) == 4)) {
+                p2e5.setText(Integer.toString(Integer.valueOf(p2e5.getText().toString()) + 4));
+            } else {
+                Toast toast22 = Toast.makeText(MainActivity.this, "調整錯誤!!!!", Toast.LENGTH_LONG);
+                toast22.show();
+            }
+            go_and_send();
         }
+
     }
+
 
     private final class rst1500ClickListener implements View.OnClickListener {
         @Override
@@ -234,6 +288,7 @@ public class MainActivity extends AppCompatActivity {
             p2e3.setText(default_value_1500, 0, 4);
             p2e4.setText(default_value_1500, 0, 4);
             p2e5.setText(default_value_1500, 0, 4);
+            p2e2.setText(default_value_1500, 0, 4);
         }
     }
 
