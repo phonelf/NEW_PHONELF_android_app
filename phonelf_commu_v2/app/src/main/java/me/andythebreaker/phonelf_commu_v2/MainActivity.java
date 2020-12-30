@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btd = null;
     private Button btr = null;
     private Button rst1500 = null;
+    private Switch SNsw = null;
 
 
     //除錯區域宣告
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         btd.setOnClickListener(new btdClickListener());
         rst1500 = (Button) findViewById(R.id.btrst);
         rst1500.setOnClickListener(new rst1500ClickListener());
+        SNsw = (Switch) findViewById(R.id.if_refreash);
 
 
         //GUI動作宣告
@@ -205,13 +207,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 //p2e2.setText("1500");
-            char default_value_1500[]={'1','5','0','0'};
-            p2e3.setText(default_value_1500,0,4);
-            p2e4.setText(default_value_1500,0,4);
-            p2e5.setText(default_value_1500,0,4);
+            char default_value_1500[] = {'1', '5', '0', '0'};
+            p2e3.setText(default_value_1500, 0, 4);
+            p2e4.setText(default_value_1500, 0, 4);
+            p2e5.setText(default_value_1500, 0, 4);
         }
     }
-
 
 
     //對button1的監聽事件
@@ -372,13 +373,17 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         handler.post(new Runnable() {
                             public void run() {
-                                pt2tx3.setText(s);  //post message on the textView
+                                if (SNsw.isChecked()) {
+                                    pt2tx3.setText(s);  //post message on the textView
+                                }
                             }
                         });
                     } catch (Exception e) {
                         handler.post(new Runnable() {
                             public void run() {
-                                pt2tx3.setText(s);
+                                if (SNsw.isChecked()) {
+                                    pt2tx3.setText(s);
+                                }
                             }
                         });
                     }
@@ -526,7 +531,7 @@ public class MainActivity extends AppCompatActivity {
                             System.out.println(msgLocal.obj.toString());
                             System.out.println(msg);
                             myHandler.sendMessage(msgLocal);
-                            msg = "$"+p2e1.getText()+"000000"+"0"+p2e2.getText()+"0"+p2e3.getText()+"0"+p2e4.getText()+"0"+p2e5.getText()+ "~";
+                            msg = "$" + p2e1.getText() + "000000" + "0" + p2e2.getText() + "0" + p2e3.getText() + "0" + p2e4.getText() + "0" + p2e5.getText() + "~";
                             this.sendmsg(msg);
                         }
                     }
