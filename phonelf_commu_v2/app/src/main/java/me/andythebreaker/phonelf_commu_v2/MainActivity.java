@@ -340,6 +340,7 @@ public class MainActivity extends AppCompatActivity {
     private final class pt2btClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+            go_and_send();
 
             if (pt2bt.getText().toString().equals("啟動")) {
                 ServerThread2 serverThread = new ServerThread2(9998);
