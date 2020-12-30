@@ -74,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
     private Button rst1500 = null;
     private Switch SNsw = null;
 
+    //slower
+    private String slow01 = "";
+    //private String slow02="";
+    //private String slow03="";
+    //private String slow04="";
+    //private String slow05="";
+    private Button mgSend_obj = null;
+
 
     //除錯區域宣告
     private static final int use_new_add_on_mode_Recommended_set_to_Yes_to_avoid_errors = 1;
@@ -128,6 +136,9 @@ public class MainActivity extends AppCompatActivity {
         rst1500.setOnClickListener(new rst1500ClickListener());
         SNsw = (Switch) findViewById(R.id.if_refreash);
 
+        //slower
+        mgSend_obj = (Button) findViewById(R.id.mgSend);
+        mgSend_obj.setOnClickListener(new mgSend_objClickListener());
 
         //GUI動作宣告
         mText1.setText(hostip);
@@ -170,6 +181,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+    }
+
+    private void go_and_send() {
+        slow01 = "$" + p2e1.getText() + "000000" + "0" + p2e2.getText() + "0" + p2e3.getText() + "0" + p2e4.getText() + "0" + p2e5.getText() + "~";
+    }
+
+    private final class mgSend_objClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            go_and_send();
+
+        }
     }
 
     private final class btlClickListener implements View.OnClickListener {
@@ -531,7 +554,7 @@ public class MainActivity extends AppCompatActivity {
                             System.out.println(msgLocal.obj.toString());
                             System.out.println(msg);
                             myHandler.sendMessage(msgLocal);
-                            msg = "$" + p2e1.getText() + "000000" + "0" + p2e2.getText() + "0" + p2e3.getText() + "0" + p2e4.getText() + "0" + p2e5.getText() + "~";
+                            msg = slow01;
                             this.sendmsg(msg);
                         }
                     }
